@@ -34,8 +34,11 @@ const useFirebase = () => {
                         console.log(error.message);
                     });
 
-                if (data.role == "rider") {
+                if (data.role === "rider") {
                     navigate("/riderProfile")
+                }
+                else if (data.role === "learner") {
+                    navigate("/packages")
                 }
                 else {
                     navigate("/")

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 const RiderProfile = () => {
@@ -14,14 +15,14 @@ const RiderProfile = () => {
     },
         [])
     return (
-        <div className="container text-center my-5">
-            <h1>Rider Profile</h1>
+        <div className="container text-center mb-5">
+            <h1 className="text-uppercase my-3">Rider Profile</h1>
             <div className="row">
                 <div className="col-md-2"></div>
                 <div className="col-md-8 shadow-lg rounded-3 p-5">
-                    <img src={rider?.profileImg} alt="" className="w-25 mx-auto rounded-circle" />
+                    <img src={rider?.profileImg} alt="" width="150px" height="150px" className="mx-auto rounded-circle mb-3 shadow-lg" />
                     <div className="row">
-                        <div className="col-md-3">
+                        <div className="col-md-3 ps-3">
                             <div className="text-start ps-3">
                                 <h4>Name</h4>
                                 <h4>Email</h4>
@@ -47,6 +48,11 @@ const RiderProfile = () => {
                 </div>
             </div>
             <div className="col-md-2"></div>
+            <Link to='/home'>
+                <button className="btn btn-outline-dark mt-3">
+                    Back to Home
+                </button>
+            </Link>
         </div >
     );
 };

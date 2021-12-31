@@ -10,6 +10,8 @@ import Rider from './Pages/Register/Rider/Rider';
 import Learner from './Pages/Register/Learner/Learner';
 import AuthProvider from './context/AuthProvider/AuthProvider';
 import RiderProfile from './Pages/RiderProfile/RiderProfile';
+import Packages from './Pages/Packages/Packages';
+import Login from './Pages/Login/Login';
 function App() {
   return (
     <div className="overflow-hidden">
@@ -21,6 +23,8 @@ function App() {
             <Route path="/rider" element={<Rider />} />
             <Route path="/learner" element={<Learner />} />
             <Route path="/riderProfile" element={<RiderProfile />} />
+            <Route path="/packages" element={<Packages />} />
+            <Route path="/login" element={<Login />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

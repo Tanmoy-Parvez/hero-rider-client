@@ -16,12 +16,16 @@ const Learner = () => {
 
     return (
         <div className="container my-5">
-            <Link to='/home'>
-                <button className="btn btn-outline-dark">
-                    Back to Home
-                </button>
-            </Link>
-            <h1 className="text-center mb-3">Register as a Learner</h1>
+            <div className="d-flex align-items-center">
+                <Link to='/home'>
+                    <button className="btn btn-outline-dark">
+                        <i className="fas fa-arrow-circle-left"></i>
+                    </button>
+                </Link>
+                <h1 className="text-center text-uppercase my-3 mx-auto">
+                    Driving Lessons Learner
+                </h1>
+            </div>
             <div className="row">
                 <div className="col-md-3"></div>
                 <div className="col-md-6">
