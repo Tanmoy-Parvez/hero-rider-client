@@ -1,9 +1,16 @@
 import React from 'react';
+import About from '../About/About';
+import Banner from '../Banner/Banner';
+import Register from '../Register/Register';
+import Navigationbar from '../Shared/Navigationbar/Navigationbar';
 
 const Home = () => {
     return (
         <div>
-            <h1>This is home component</h1>
+            <Navigationbar />
+            <Banner />
+            <About />
+            <Register />
         </div>
     );
 };
