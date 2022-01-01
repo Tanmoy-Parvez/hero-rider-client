@@ -84,7 +84,7 @@ const Rider = () => {
                         <input type="email" {...register("email", { required: true })} className="form-control mb-3" />
 
                         <label>Age*:</label>
-                        <input type="number" {...register("age", { required: true })} className="form-control mb-3" />
+                        <input type="number" {...register("age", { required: true, min: 18, max: 90 })} className="form-control mb-3" placeholder="must be greater than 17 years" />
 
                         <label>Address:</label>
                         <input type="text" {...register("address")} className="form-control mb-3" />
