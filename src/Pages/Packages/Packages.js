@@ -10,7 +10,7 @@ const Packages = () => {
     const [learner, setLearner] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/saveUser/${user?.email}`)
+        fetch(`https://hero-rider.herokuapp.com/saveUser/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setLearner(data)
@@ -19,7 +19,7 @@ const Packages = () => {
         [])
 
     useEffect(() => {
-        fetch('http://localhost:5000/packages')
+        fetch('https://hero-rider.herokuapp.com/packages')
             .then(res => res.json())
             .then(data => {
                 setPackages(data)

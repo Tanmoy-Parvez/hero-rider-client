@@ -7,7 +7,7 @@ const RiderProfile = () => {
     const [rider, setRider] = useState({});
 
     useEffect(() => {
-        fetch(`http://localhost:5000/saveUser/${user?.email}`)
+        fetch(`https://hero-rider.herokuapp.com/saveUser/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setRider(data)

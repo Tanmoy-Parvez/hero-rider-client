@@ -12,7 +12,7 @@ const Payment = () => {
     const [bookedPackage, setBookedPackage] = useState({})
 
     useEffect(() => {
-        fetch(`http://localhost:5000/packages/${id}`)
+        fetch(`https://hero-rider.herokuapp.com/packages/${id}`)
             .then(res => res.json())
             .then(data => setBookedPackage(data))
     }, [id])

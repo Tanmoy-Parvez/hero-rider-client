@@ -56,7 +56,7 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                fetch(`http://localhost:5000/saveUser/${email}`)
+                fetch(`https://hero-rider.herokuapp.com/saveUser/${email}`)
                     .then(res => res.json())
                     .then(data => {
                         if (data.role === "rider") {
@@ -118,7 +118,7 @@ const useFirebase = () => {
     }
 
     const saveUser = (data, method) => {
-        fetch('http://localhost:5000/saveUser', {
+        fetch('https://hero-rider.herokuapp.com/saveUser', {
             method: method,
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(data)
@@ -128,7 +128,7 @@ const useFirebase = () => {
     }
     // check admin or not
     useEffect(() => {
-        fetch(`http://localhost:5000/saveUser/${user?.email}`)
+        fetch(`https://hero-rider.herokuapp.com/saveUser/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)

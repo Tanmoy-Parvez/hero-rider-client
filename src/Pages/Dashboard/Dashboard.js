@@ -13,7 +13,7 @@ const Dashboard = () => {
     const size = 10;
 
     useEffect(() => {
-        fetch(`http://localhost:5000/allUser?page=${page}&&size=${size}`)
+        fetch(`https://hero-rider.herokuapp.com/allUser?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
                 setAllUsers(data.result)
@@ -61,12 +61,12 @@ const Dashboard = () => {
     const [operator, setOperator] = useState({});
     // handle update status
     const handleCheck = (id) => {
-        fetch(`http://localhost:5000/allUser/${id}`)
+        fetch(`https://hero-rider.herokuapp.com/allUser/${id}`)
             .then((res) => res.json())
             .then((data) => setOperator(data));
         setOperator(operator.status = "blocked");
 
-        fetch(`http://localhost:5000/allUser/${id}`, {
+        fetch(`https://hero-rider.herokuapp.com/allUser/${id}`, {
             method: "PUT",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(operator),
