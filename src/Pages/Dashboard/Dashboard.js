@@ -6,15 +6,23 @@ const Dashboard = () => {
     const { user } = useAuth()
     const [allUsers, setAllUsers] = useState([])
     const [displayUsers, setDisplayUser] = useState([]);
+    const [updated, setUpdated] = useState(false);
+
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+    const size = 10;
 
     useEffect(() => {
-        fetch('http://localhost:5000/allUser')
+        fetch(`http://localhost:5000/allUser?page=${page}&&size=${size}`)
             .then(res => res.json())
             .then(data => {
-                setAllUsers(data)
-                setDisplayUser(data)
+                setAllUsers(data.result)
+                setDisplayUser(data.result)
+                const count = data.count;
+                const pageNumber = Math.ceil(count / 10);
+                setPageCount(pageNumber)
             })
-    }, [])
+    }, [page, updated])
 
     const handleSearch = (event) => {
         const searchText = event.target.value;
@@ -46,6 +54,30 @@ const Dashboard = () => {
         else {
             setDisplayUser(allUsers)
         }
+    }
+
+
+    // update status
+    const [operator, setOperator] = useState({});
+    // handle update status
+    const handleCheck = (id) => {
+        fetch(`http://localhost:5000/allUser/${id}`)
+            .then((res) => res.json())
+            .then((data) => setOperator(data));
+        setOperator(operator.status = "blocked");
+
+        fetch(`http://localhost:5000/allUser/${id}`, {
+            method: "PUT",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(operator),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                if (data.modifiedCount > 0) {
+                    alert("User blocked successfully!");
+                    setUpdated(!updated)
+                }
+            });
     }
 
     return (
@@ -85,12 +117,22 @@ const Dashboard = () => {
                                 </div>
                                 <div className="col-md-8">
                                     <div className="card-body">
-                                        <h5 className="card-title fw-bold">Name: {user?.name}</h5>
+                                        <h5 className="card-title fw-bold">
+                                            Name: {user?.name} {user?.status &&
+                                                <span className="card-title fs-6">({user?.status})</span>
+                                            }
+
+                                        </h5>
                                         <h5 className="card-title">Email: {user?.email}</h5>
                                         <h5 className="card-title">Phone: {user?.phone}</h5>
                                         <h5 className="card-title">Age: {user?.age} years</h5>
                                         <h5 className="card-title">Vehicle: {user?.vehicle}</h5>
                                         <h5 className="card-title">User: {user?.role}</h5>
+                                        <span className="d-flex align-items-center">
+                                            <input type="checkbox" className="me-2"
+                                                onChange={() => handleCheck(`${user?._id}`)} />
+                                            Block user
+                                        </span>
                                     </div>
                                 </div>
                             </div>
@@ -98,6 +140,13 @@ const Dashboard = () => {
                     }
                 </div>
                 <div className="col-md-3"></div>
+            </div>
+            <div className="pagination">
+                {
+                    [...Array(pageCount).keys()]
+                        .map(number => <button key={number} onClick={() => setPage(number)} className={page === number ? "selected" : ""}>{number + 1}
+                        </button>)
+                }
             </div>
         </div>
     );

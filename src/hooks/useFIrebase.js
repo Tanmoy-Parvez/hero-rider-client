@@ -60,10 +60,25 @@ const useFirebase = () => {
                     .then(res => res.json())
                     .then(data => {
                         if (data.role === "rider") {
-                            navigate("/riderProfile")
+                            if (data.status) {
+                                alert("Sorry, your account is blocked by the admin")
+                                return;
+                            }
+                            else {
+                                navigate("/riderProfile")
+                            }
                         }
                         else if (data.role === "learner") {
-                            navigate("/packages")
+                            if (data.status) {
+                                alert("Sorry, your account is blocked by the admin")
+                                return;
+                            }
+                            else {
+                                navigate("/packages")
+                            }
+                        }
+                        else if (data.role === "admin") {
+                            navigate("/dashboard")
                         }
                         else {
                             navigate("/")
