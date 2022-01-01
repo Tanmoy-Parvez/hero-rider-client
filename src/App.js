@@ -12,6 +12,7 @@ import AuthProvider from './context/AuthProvider/AuthProvider';
 import RiderProfile from './Pages/RiderProfile/RiderProfile';
 import Packages from './Pages/Packages/Packages';
 import Login from './Pages/Login/Login';
+import Dashboard from './Pages/Dashboard/Dashboard';
 function App() {
   return (
     <div className="overflow-hidden">
@@ -25,6 +26,7 @@ function App() {
             <Route path="/riderProfile" element={<RiderProfile />} />
             <Route path="/packages" element={<Packages />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/dashboard" element={<Dashboard />} />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

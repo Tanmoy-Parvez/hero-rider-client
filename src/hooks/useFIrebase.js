@@ -52,7 +52,7 @@ const useFirebase = () => {
             });
     }
 
-    const signInUser = (email, password, location, navigate) => {
+    const signInUser = (email, password, navigate) => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {

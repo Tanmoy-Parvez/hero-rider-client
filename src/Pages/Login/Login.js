@@ -1,19 +1,17 @@
 import React from 'react';
 import loginImg from '../../images/loginImg.jpg';
 import { useForm } from "react-hook-form";
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
 const Login = () => {
     const { signInUser, authError } = useAuth();
-
-    const location = useLocation();
     const navigate = useNavigate();
 
     const { register, handleSubmit } = useForm();
     const onSubmit = data => {
-        signInUser(data.email, data.password, location, navigate)
+        signInUser(data.email, data.password, navigate)
     };
 
 

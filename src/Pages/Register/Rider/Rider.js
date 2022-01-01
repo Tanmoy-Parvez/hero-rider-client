@@ -25,7 +25,6 @@ const Rider = () => {
         }
         else if (authError) {
             setError(<h6 className="text-danger mt-3 text-center">Email already in use</h6>)
-            return
         }
         else {
             setError('')
