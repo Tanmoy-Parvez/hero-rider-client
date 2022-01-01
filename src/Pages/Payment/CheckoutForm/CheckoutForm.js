@@ -15,7 +15,7 @@ const CheckoutForm = ({ bookedPackage }) => {
     const { user } = useAuth();
 
     useEffect(() => {
-        fetch('https://hero-rider.herokuapp.com/packages/create-checkout-session', {
+        fetch('https://hero-rider.herokuapp.com/create-checkout-session', {
             method: 'POST',
             headers: { "content-type": "application/json" },
             body: JSON.stringify({ price })
