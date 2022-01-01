@@ -21,9 +21,9 @@ const Packages = () => {
                         <i className="fas fa-arrow-circle-left"></i>
                     </button>
                 </Link>
-                <h1 className="text-center text-uppercase my-4 mx-auto">
+                <h2 className="text-center text-uppercase my-4 mx-auto">
                     Our Packages
-                </h1>
+                </h2>
             </div>
             <div className="row">
                 <div className="col-md-2"></div>

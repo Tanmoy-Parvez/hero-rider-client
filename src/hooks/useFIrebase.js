@@ -56,8 +56,20 @@ const useFirebase = () => {
         setIsLoading(true);
         signInWithEmailAndPassword(auth, email, password)
             .then((userCredential) => {
-                const destination = location?.state?.from || '/';
-                navigate(destination);
+                fetch(`http://localhost:5000/saveUser/${email}`)
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.role === "rider") {
+                            navigate("/riderProfile")
+                        }
+                        else if (data.role === "learner") {
+                            navigate("/packages")
+                        }
+                        else {
+                            navigate("/")
+                        }
+                    })
+
                 setAuthError('');
             })
             .catch((error) => {

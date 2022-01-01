@@ -43,7 +43,9 @@ const Navigationbar = () => {
                             {
                                 operator?.role === "admin" &&
                                 < Nav.Link >
-                                    Dashboard
+                                    <Link to='/dashboard'>
+                                        Dashboard
+                                    </Link>
                                 </Nav.Link>
                             }
                             < Nav.Link >

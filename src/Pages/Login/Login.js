@@ -1,7 +1,7 @@
 import React from 'react';
 import loginImg from '../../images/loginImg.jpg';
 import { useForm } from "react-hook-form";
-import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
