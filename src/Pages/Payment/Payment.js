@@ -20,8 +20,9 @@ const Payment = () => {
         <div className="container my-5 text-center">
             <div className="row">
                 <div className="col-md-2"></div>
-                <div className="col-md-8 shadow-lg p-5">
-                    <h4>Package: {bookedPackage?.title}</h4>
+                <div className="col-md-8 shadow-lg px-5 pb-5">
+                    <img src={bookedPackage?.img} className="img-fluid w-50" alt="" />
+                    <h3>Package: {bookedPackage?.title}</h3>
                     <h5>ID: {id}</h5>
                     <h3>Amount: $ {bookedPackage?.price}</h3>
                     {bookedPackage.price && <Elements stripe={stripePromise}>

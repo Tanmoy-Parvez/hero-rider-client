@@ -1,7 +1,7 @@
 import React from 'react';
 import loginImg from '../../images/loginImg.jpg';
 import { useForm } from "react-hook-form";
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 
 
@@ -20,7 +20,12 @@ const Login = () => {
             <div className="container pt-5" style={{ minHeight: "620px" }}>
                 <div className="row d-flex align-items-center justify-content-center">
                     <div className="col-md-7 animate__animated animate__backInLeft">
-                        <img src={loginImg} alt="" className="img-fluid w-75" />
+                        <Link to='/home'>
+                            <button className="btn btn-outline-dark">
+                                <i className="fas fa-arrow-circle-left"></i>
+                            </button>
+                        </Link>
+                        <img src={loginImg} alt="" className="img-fluid w-100" />
                     </div>
                     <div className="col-md-5 text-center mt-5">
                         <div className="mx-auto shadow-lg py-4 rounded-3">

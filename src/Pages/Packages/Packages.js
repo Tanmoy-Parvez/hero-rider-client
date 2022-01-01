@@ -52,7 +52,7 @@ const Packages = () => {
                                 packages.map(services => <Col>
                                     <Card className="shadow-lg rounded-3">
                                         <Card.Img variant="top" src={services?.img} className="p-3" height="300px" />
-                                        <Card.Body className="text-center">
+                                        <Card.Body className="text-center bg-light">
                                             <Card.Title>
                                                 <h3>{services?.title}</h3>
                                             </Card.Title>

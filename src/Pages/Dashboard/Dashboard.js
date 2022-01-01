@@ -107,16 +107,16 @@ const Dashboard = () => {
             </div>
 
             <div className="row">
-                <div className="col-md-3"></div>
-                <div className="col-md-6">
+                <div className="col-md-2"></div>
+                <div className="col-md-8">
                     {
                         displayUsers.filter(allUser => allUser.role !== 'admin').map(user => <div className="card mb-5">
                             <div className="row g-0">
                                 <div className="col-md-4">
-                                    <img src={user?.profileImg} className="rounded-start" height="230px" width="180px" alt="..." />
+                                    <img src={user?.profileImg} className="rounded-start" height="250px" width="220px" alt="..." />
                                 </div>
-                                <div className="col-md-8">
-                                    <div className="card-body">
+                                <div className="col-md-8 shadow-lg">
+                                    <div className="card-body bg-light ">
                                         <h5 className="card-title fw-bold">
                                             Name: {user?.name} {user?.status &&
                                                 <span className="card-title fs-6">({user?.status})</span>
@@ -139,7 +139,7 @@ const Dashboard = () => {
                         </div>)
                     }
                 </div>
-                <div className="col-md-3"></div>
+                <div className="col-md-2"></div>
             </div>
             <div className="pagination">
                 {
