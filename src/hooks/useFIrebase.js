@@ -128,7 +128,7 @@ const useFirebase = () => {
     }
     // check admin or not
     useEffect(() => {
-        fetch(`https://alpha-sunglasses-yard-server.herokuapp.com/saveUser/${user?.email}`)
+        fetch(`http://localhost:5000/saveUser/${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setAdmin(data.admin)

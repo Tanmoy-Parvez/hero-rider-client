@@ -13,6 +13,9 @@ import RiderProfile from './Pages/RiderProfile/RiderProfile';
 import Packages from './Pages/Packages/Packages';
 import Login from './Pages/Login/Login';
 import Dashboard from './Pages/Dashboard/Dashboard';
+import PrivateRoute from './Pages/PrivateRoute/PrivateRoute';
+import AdminRoute from './Pages/AdminRoute/AdminRoute';
+import Payment from './Pages/Payment/Payment';
 function App() {
   return (
     <div className="overflow-hidden">
@@ -23,10 +26,27 @@ function App() {
             <Route path="/home" element={<Home />} />
             <Route path="/rider" element={<Rider />} />
             <Route path="/learner" element={<Learner />} />
-            <Route path="/riderProfile" element={<RiderProfile />} />
-            <Route path="/packages" element={<Packages />} />
+            <Route path="/riderProfile" element={
+              <PrivateRoute>
+                <RiderProfile />
+              </PrivateRoute>
+            } />
+            <Route path="/packages" element={
+              <PrivateRoute>
+                <Packages />
+              </PrivateRoute>
+            } />
+            <Route path="/book/:id" element={
+              <PrivateRoute>
+                <Payment />
+              </PrivateRoute>
+            } />
             <Route path="/login" element={<Login />} />
-            <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/dashboard" element={
+              <AdminRoute>
+                <Dashboard />
+              </AdminRoute>
+            } />
           </Routes>
         </BrowserRouter>
       </AuthProvider>

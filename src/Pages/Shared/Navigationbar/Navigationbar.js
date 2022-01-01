@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Container, Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import useAuth from '../../../hooks/useAuth';
+import { NavHashLink } from 'react-router-hash-link';
 
 const Navigationbar = () => {
     const { user, logOut } = useAuth()
@@ -62,7 +63,7 @@ const Navigationbar = () => {
                                     <button className="btn btn-outline-light">Login</button>
                                 </Link>
                             </Nav.Link>
-                            <Nav.Link>
+                            <Nav.Link as={NavHashLink} to="/home#register" className="hashLink">
                                 <button className="btn btn-outline-light">Sign Up</button>
                             </Nav.Link>
 
